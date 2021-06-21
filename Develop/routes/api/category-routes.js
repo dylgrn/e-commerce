@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
   }).then(dbCatData => {
     if(!dbCatData) {
       res.status(404).json({message: 'No categories Found'})
-      return
+      return;
     }
     res.json(dbCatData)
   })
@@ -62,7 +62,7 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
-  Category.upddate(req.body, {
+  Category.update(req.body, {
     where: {
       id: req.params.id
     }
